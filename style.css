@@ -1,7 +1,47 @@
 /* Wandering Jetstream LLC — shared site styles
    Warm, editorial, lightly retro. Built to host many apps. */
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,900&family=Spline+Sans+Mono:wght@400;500&display=swap');
+/* Self-hosted webfonts. Replaces the previous stylesheet import from Google Fonts,
+   which transmitted every visitor's IP address to Google before any page
+   content rendered. Both families are licensed under the SIL Open Font
+   License 1.1, which permits self-hosting and redistribution.
+   Files live at /fonts/ in this repository. */
+
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/fraunces-latin.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/fraunces-latin-ext.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Spline Sans Mono';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('/fonts/spline-sans-mono-latin.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Spline Sans Mono';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('/fonts/spline-sans-mono-latin-ext.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
 
 :root {
   --ink:        #2a1f14;
@@ -134,3 +174,31 @@ a { color: var(--wood-deep); text-underline-offset: 3px; }
 .site-foot a { color: var(--ink-soft); text-decoration: none; }
 .site-foot a:hover { color: var(--ink); }
 .site-foot .mono { font-family: 'Spline Sans Mono', monospace; }
+
+
+/* ---- accessibility corrections (added by the s5 website audit) ---- */
+
+/* The header is position:sticky, so #privacy / #terms / #support would
+   otherwise scroll their heading underneath it. The in-app Privacy Policy
+   link points at /wayword/#privacy and must land on a visible heading. */
+h2[id] { scroll-margin-top: 112px; }
+h2[id]:focus { outline: none; }
+
+/* Reflow instead of overflowing at 400% zoom (WCAG 1.4.10 Reflow). */
+.site-head .wrap { flex-wrap: wrap; gap: 10px 16px; }
+.nav { display: flex; flex-wrap: wrap; gap: 0 4px; }
+.nav a { margin-left: 0; margin-right: 18px; }
+
+/* Footer links were --ink-soft on --ink-soft body text with no underline,
+   so they were identifiable by colour alone (WCAG 1.4.1 Use of Color). */
+.site-foot a { text-decoration: underline; text-underline-offset: 3px; }
+
+/* .app-card .tag was #8a5a2b on #ece0c9 = 4.49:1, just under the 4.5:1
+   required for text below 18.66px. --wood-deep on --paper-2 = 7.75:1. */
+.app-card .tag { color: var(--wood-deep); }
+
+/* style.css defined no focus style, and .nav a / .site-foot a suppress the
+   underline the UA default relies on. */
+a:focus-visible { outline: 2px solid var(--accent-r); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
