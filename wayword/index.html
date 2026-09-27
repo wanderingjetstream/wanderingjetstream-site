@@ -113,8 +113,9 @@
         <li>device and app information, such as device model, operating system version,
         and app version;</li>
         <li>a device identifier used for frequency capping, fraud prevention, and
-        aggregate measurement — not the Apple Advertising Identifier (IDFA), which Wayword
-        never requests or uses;</li>
+        aggregate measurement — not the Apple Advertising Identifier (IDFA).
+        Wayword never asks for tracking permission, so the Apple Advertising Identifier
+        (IDFA) is unavailable to the app and to Google; it reads as all zeros.</li>
         <li>ad interaction data, such as which ads were shown, whether an ad was viewed,
         and whether it was tapped;</li>
         <li>crash, performance, and other diagnostic data from the ad SDK itself, such as SDK
@@ -129,19 +130,12 @@
 
       <h3>Tracking: none, and no ATT prompt</h3>
       <p>Those ads are non-personalized. Wayword does not use the Advertising Identifier
-      and does not track you across other apps or websites. In the European Economic Area,
-      the United Kingdom and Switzerland, ad consent is collected through Google's consent
-      form; those users can change their choice at any time from Settings.</p>
+      and does not track you across other apps or websites.</p>
       <p>Because Wayword does not track you in the sense Apple defines, it never presents
-      Apple's App Tracking Transparency prompt and never accesses the IDFA. Wayword's own
-      privacy manifest declares no tracking and no collected data types.</p>
-      <p>The Google Mobile Ads SDK bundled with Wayword ships its own privacy manifest, which
-      declares a device identifier as linked to other data the SDK collects and used for
-      tracking, because Google publishes one manifest for every app that integrates the SDK,
-      including apps that request tracking permission and serve personalized ads. Wayword
-      never requests that permission, so the Advertising Identifier is all zeros, ad
-      personalization is disabled at the SDK level, and there is no account or user ID for
-      any data to be linked to; no tracking occurs.</p>
+      Apple's App Tracking Transparency prompt. Wayword never asks for tracking permission,
+      so the Apple Advertising Identifier (IDFA) is unavailable to the app and to Google; it
+      reads as all zeros. Ad personalization is disabled at the SDK level, and there is no
+      account or user ID for any data to be linked to; no tracking occurs.</p>
       <p>If you are in the EEA, the UK, or Switzerland, Wayword shows Google's consent
       message before any ad-related processing begins. Your choice is stored on your
       device, and you can change or withdraw it at any time: open
@@ -160,11 +154,12 @@
       <h3>Wayword Pro and in-app purchases</h3>
       <p>Wayword is free to use, with the full core word list in every language. The free version is supported by non-personalized ads.</p>
       <p>Wayword Pro is a one-time purchase that removes ads, unlocks multiple custom decks, and lets you import your own vocabulary — no subscription, no expiry.</p>
-      <p>Wayword Pro removes all ads, and the ad SDK is never loaded at all for Pro
-      users.</p>
+      <p>Wayword Pro removes all ads, and the ad SDK is never started for Pro users, and
+      no ad requests are made.</p>
       <p>Purchases are handled by Apple through the App Store. We never receive or store
-      your payment details, your Apple Account email, or your name — we receive only a
-      signed receipt confirming that the purchase is valid. Apple's handling of your
+      your payment details, your Apple Account email, or your name. Apple processes the
+      purchase. Wayword checks it on your device, and we receive no payment details or
+      purchase history about you. Apple's handling of your
       information is governed by
       <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.</p>
 
