@@ -202,3 +202,9 @@ h2[id]:focus { outline: none; }
 a:focus-visible { outline: 2px solid var(--accent-r); outline-offset: 3px; }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* On a short viewport (400% zoom of a 1280x720 window is 320x180 CSS px, or a
+   phone held sideways) the wrapped sticky header covered most of the screen
+   and could hide the focused element (WCAG 2.4.11, 1.4.10). Let it scroll
+   away there; tall viewports keep the sticky header. */
+@media (max-height: 480px) { .site-head { position: static; } }
