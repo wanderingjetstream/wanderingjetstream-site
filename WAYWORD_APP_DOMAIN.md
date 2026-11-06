@@ -2,6 +2,9 @@
 
 Nothing in this file has been done. It is the checklist for later. No DNS was changed.
 
+The [Launch day](#launch-day) section at the end lists the page changes to make when
+Wayword 1.0 goes live on the App Store.
+
 ## Where things stand (read-only lookups, 2026-11-05)
 
 | | wayword.app | wanderingjetstream.com |
@@ -124,3 +127,51 @@ showing `wayword.app`):
 
 The cost is two copies of every page to keep in sync, which is why the redirect is the
 recommendation.
+
+## Launch day
+
+Make these changes in one commit when Wayword 1.0 is live on the App Store. They are
+all in this repo and none of them touch DNS.
+
+1. **App Store badge** (`wayword/index.html`, hero). The `APP STORE BADGE PLACEHOLDER`
+   HTML comment marks the spot.
+   - Download Apple's official "Download on the App Store" badge (black, US English,
+     SVG) from Apple's marketing tools (developer.apple.com/app-store/marketing/guidelines).
+   - Save it in this repo as `wayword/app-store-badge.svg`. Never hot-link it from
+     Apple: the pages must keep making no third-party requests.
+   - Replace `<p class="store-badge">Coming soon to the App Store</p>` with:
+
+     ```html
+     <p class="store-link"><a href="https://apps.apple.com/app/id6784230698"><img
+       src="/wayword/app-store-badge.svg" alt="Download on the App Store"
+       width="120" height="40"></a></p>
+     ```
+
+     `6784230698` is Wayword's Apple ID in App Store Connect. Open the link once to
+     confirm it reaches the listing.
+   - In `wayword/wayword.css`, replace the `.store-badge` rule and the comment above it with
+     `.store-link { margin-top: 26px; } .store-link img { display: block; }`.
+     Keep the badge at least 40px tall, as Apple's guidelines require.
+   - Then delete the placeholder comment.
+2. **Remove the "Coming in 1.0" labels** (each is a `<p class="soon">`):
+   - `wayword/index.html`, under "Lessons" and under "Snapshots"
+   - `wayword/educators/index.html`: "Lessons and Snapshots arrive in Wayword 1.0"
+   - `wayword/courses/index.html`: "Courses arrive in Wayword 1.0"
+
+   Then delete the `.soon` rule and the comment above it in `wayword/wayword.css`.
+3. **Remove "from version 1.0"** from the two places that say it:
+   - `wayword/index.html` lede: "— and, from version 1.0, build and share short courses
+     on any subject" becomes "— and build and share short courses on any subject"
+   - `index.html` (studio home), Wayword card: "— and, from version 1.0, short courses
+     anyone can build and share" becomes "— and short courses anyone can build and share"
+4. **Check before pushing.** This should print nothing:
+
+   ```sh
+   grep -rnE '1\.0|class="soon"|store-badge|PLACEHOLDER|Coming soon' index.html wayword/
+   ```
+
+   Then serve the site locally (`python3 -m http.server`) and look at `/wayword/` on a
+   desktop and a phone-width window. The badge should load from this site, not from
+   Apple.
+5. **After GitHub Pages redeploys**, open https://wanderingjetstream.com/wayword/ and tap
+   the badge on an iPhone to confirm it opens the App Store listing.
