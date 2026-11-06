@@ -99,6 +99,12 @@ ul.steps li, .doc ul.steps li {
   .compare { font-size: 0.92rem; }
   .compare th, .compare td { padding: 8px 6px; }
 }
+/* Four columns (feature + Free / Pro / Creator) need a little less at 320px,
+   which is also the width at 400% zoom. */
+@media (max-width: 360px) {
+  .compare { font-size: 0.8rem; }
+  .compare th, .compare td { padding: 7px 3px; }
+}
 
 /* ---- sub-pages ---- */
 .doc .eyebrow { margin-bottom: 14px; }
