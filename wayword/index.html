@@ -3,186 +3,268 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Wayword — Wandering Jetstream</title>
-<meta name="description" content="Wayword is a spaced-repetition flashcard app for learning languages on iPhone, from Wandering Jetstream LLC. App details, privacy policy, terms of use, and support.">
+<title>Wayword — vocabulary and lessons for iPhone</title>
+<meta name="description" content="Wayword is a spaced-repetition vocabulary app for iPhone: about 5,000 of the most frequent words in each of six languages, with IPA and audio, plus short courses anyone can build and share. No ads and no data collection.">
+<link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/spline-sans-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/style.css">
-<style>
-  /* Page-scoped corrections. These duplicate the fixes recommended for
-     /style.css so this page is correct even if style.css is published later. */
-
-  /* The site header is position:sticky, so an in-app link to #privacy would
-     otherwise scroll the heading underneath it. */
-  h2[id] { scroll-margin-top: 112px; }
-
-  /* Header must reflow instead of overflowing at 400% zoom / 320px width. */
-  .site-head .wrap { flex-wrap: wrap; gap: 10px 16px; }
-  .nav { display: flex; flex-wrap: wrap; gap: 0 4px; }
-  .nav a { margin-left: 0; margin-right: 18px; }
-
-  /* Footer links were the same colour as footer text with no underline,
-     making them indistinguishable without colour vision. */
-  .site-foot a { text-decoration: underline; text-underline-offset: 3px; }
-
-  /* Respect reduced-motion for the site-wide smooth scrolling. */
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-
-  /* Visible keyboard focus (style.css defines none). */
-  a:focus-visible, h2[id]:focus-visible {
-    outline: 2px solid var(--accent-r);
-    outline-offset: 3px;
-  }
-  h2[id]:focus { outline: none; }
-
-  .policy-list { margin: 0 0 14px 22px; max-width: 64ch; }
-  .policy-list li { margin-bottom: 6px; }
-</style>
+<link rel="stylesheet" href="/wayword/wayword.css">
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
 <header class="site-head">
   <div class="wrap">
     <a class="brand" href="/"><span class="mark" aria-hidden="true"></span>Wandering Jetstream</a>
-    <nav class="nav" aria-label="Wayword sections">
-      <a href="/">Studio</a>
+    <nav class="nav" aria-label="Wayword">
+      <a href="/wayword/" aria-current="page">Wayword</a>
+      <a href="/wayword/educators/">Educators</a>
+      <a href="/wayword/courses/">Courses</a>
+      <a href="/wayword/support/">Support</a>
       <a href="/wayword/#privacy">Privacy</a>
-      <a href="/wayword/#terms">Terms</a>
-      <a href="/wayword/#support">Support</a>
     </nav>
   </div>
 </header>
 
-<main>
+<main id="main">
   <div class="wrap">
     <section class="hero">
-      <div class="eyebrow">iPhone · Language learning</div>
+      <div class="eyebrow">iPhone · Vocabulary and lessons</div>
       <h1>Wayword</h1>
-      <p class="lede">A spaced-repetition flashcard app for learning languages, made for
-      iPhone by Wandering Jetstream.
-      Wayword teaches the most frequent words in six languages — about 5,000 per language: Spanish, French, German, Italian, Brazilian Portuguese, and English.
-      Like everything we make, it is fast, uncluttered, and respectful of your time.</p>
+      <p class="lede">A spaced-repetition vocabulary app for iPhone. Learn about 5,000 of the
+      most frequent words in each of English, Spanish, French, German, Italian and Brazilian
+      Portuguese, with IPA and audio — and, from version 1.0, build and share short courses
+      on any subject.</p>
+      <p class="promise">No ads and no data collection. Everything stays on your device.</p>
+      <!-- APP STORE BADGE PLACEHOLDER. At launch, replace this <p> with Apple's official
+           "Download on the App Store" badge, self-hosted (e.g. /wayword/app-store-badge.svg,
+           never hot-linked), inside a link to https://apps.apple.com/app/id<APP_ID>, with
+           alt="Download on the App Store". -->
+      <p class="store-badge">Coming soon to the App Store</p>
+    </section>
+
+    <section aria-labelledby="about">
+      <h2 id="about" tabindex="-1"><span class="num" aria-hidden="true">01</span> What Wayword is</h2>
+      <p>Wayword is a flashcard app built on spaced repetition: it brings each word back
+      just before you are likely to forget it, so your review time goes to the words that
+      need it. Words are ranked by how often they appear in real text, so the first ones
+      you learn are the ones you will meet most.</p>
+      <div class="features">
+        <div class="feature">
+          <h3>Six languages</h3>
+          <p>English, Spanish, French, German, Italian and Brazilian Portuguese, each with
+          its own core list of about 5,000 of the most frequent words.</p>
+        </div>
+        <div class="feature">
+          <h3>IPA and audio</h3>
+          <p>Every word comes with a translation, its IPA transcription and a simplified
+          pronunciation guide, plus its part of speech, CEFR level and, where the language
+          has one, gender. Hear words spoken aloud, and record your own voice on any
+          card.</p>
+        </div>
+        <div class="feature">
+          <h3>Similar Sounds</h3>
+          <p>A listening drill for the pairs that trip every learner up: you hear one word
+          of a near-identical pair and pick which one it was.</p>
+        </div>
+        <div class="feature">
+          <h3>Your own decks</h3>
+          <p>Build decks by hand or import them, for an exam, a trip, or a show you are
+          watching. The same spaced repetition runs underneath.</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="lessons">
+      <h2 id="lessons" tabindex="-1"><span class="num" aria-hidden="true">02</span> Lessons</h2>
+      <p class="soon">Coming in 1.0</p>
+      <p>Tutors and learners can build short courses inside Wayword. Each lesson is 8 to
+      12 steps, mixing:</p>
+      <ul class="steps" aria-label="Lesson step types">
+        <li>Pictures</li>
+        <li>Listening</li>
+        <li>Typing</li>
+        <li>Matching</li>
+        <li>Ordering</li>
+        <li>Sorting</li>
+      </ul>
+      <p>A finished course is a single <code>.wayword</code> file that you share by
+      AirDrop or the Files app. Lessons work for any subject, not just languages, and
+      anyone can play a shared course on the free tier.</p>
+      <p>Read <a href="/wayword/courses/">what a .wayword course is</a>, or see
+      <a href="/wayword/educators/">Wayword for tutors and teachers</a>.</p>
+    </section>
+
+    <section aria-labelledby="snapshots">
+      <h2 id="snapshots" tabindex="-1"><span class="num" aria-hidden="true">03</span> Snapshots</h2>
+      <p class="soon">Coming in 1.0</p>
+      <p>From the Stats screen, turn your progress into a Snapshot: a card you can share
+      with a tutor, a study partner, or your own camera roll. Wayword only shares a
+      Snapshot when you do.</p>
+    </section>
+
+    <section aria-labelledby="pricing">
+      <h2 id="pricing" tabindex="-1"><span class="num" aria-hidden="true">04</span> Free and Pro</h2>
+      <table class="compare">
+        <caption class="sr-only">What the free tier and Wayword Pro include</caption>
+        <thead>
+          <tr><th scope="col"><span class="sr-only">Feature</span></th><th scope="col">Free</th><th scope="col">Wayword Pro</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Price</th><td>Free</td><td>$14.99, once</td></tr>
+          <tr><th scope="row">Languages</th><td>All six</td><td>All six</td></tr>
+          <tr><th scope="row">Core word list</th><td>The 1,500 most common words in each language</td><td>The full list: about 5,000 words in each language</td></tr>
+          <tr><th scope="row">IPA, audio and Similar Sounds</th><td>Included</td><td>Included</td></tr>
+          <tr><th scope="row">Custom decks</th><td>One</td><td>Up to 100</td></tr>
+          <tr><th scope="row">Import into an existing deck</th><td class="none">Not included</td><td>Included</td></tr>
+          <tr><th scope="row">Play any shared course</th><td>Included</td><td>Included</td></tr>
+          <tr><th scope="row">Courses you keep</th><td>One</td><td>Unlimited</td></tr>
+          <tr><th scope="row">Snapshots</th><td>Yes, with a small Wayword watermark</td><td>Yes, no watermark</td></tr>
+          <tr><th scope="row">Ads</th><td>None</td><td>None</td></tr>
+        </tbody>
+      </table>
+      <p>Wayword Pro is a one-time purchase: $14.99 in the US, with the App Store setting
+      the equivalent price in other countries. There are no subscriptions, nothing
+      expires, and words you have already learned are never locked.</p>
+    </section>
+
+    <section aria-labelledby="more">
+      <h2 id="more" tabindex="-1"><span class="num" aria-hidden="true">05</span> More about Wayword</h2>
+      <div class="apps">
+        <a class="app-card" href="/wayword/educators/">
+          <div class="tag">Tutors and teachers</div>
+          <h3>Wayword for educators</h3>
+          <p class="muted">Build a course once, hand it to every student as a file, and
+          get Pro free.</p>
+        </a>
+        <a class="app-card" href="/wayword/courses/">
+          <div class="tag">Courses</div>
+          <h3>What is a .wayword course?</h3>
+          <p class="muted">The file format, how to share one, and what it contains.</p>
+        </a>
+        <a class="app-card" href="/wayword/support/">
+          <div class="tag">Help</div>
+          <h3>Support</h3>
+          <p class="muted">Restoring a purchase, moving to a new phone, sharing a course,
+          deleting your data.</p>
+        </a>
+        <a class="app-card" href="/wayword/terms/">
+          <div class="tag">Legal</div>
+          <h3>Terms of Use</h3>
+          <p class="muted">The licence, acceptable use, and who is responsible for shared
+          courses.</p>
+        </a>
+      </div>
+    </section>
+
+    <section aria-labelledby="sources">
+      <h2 id="sources" tabindex="-1"><span class="num" aria-hidden="true">06</span> Where the words come from</h2>
+      <p>The core word lists are built from real language. Source texts are drawn from
+      Project Gutenberg (via the Gutendex API) and the Leipzig Corpora Collection — both
+      open, well-documented, and licensed for redistribution including commercial use.</p>
+      <p>Leipzig Corpora Collection data is used under the Creative Commons Attribution licence (CC BY). We gratefully acknowledge Universität Leipzig, the Sächsische Akademie der Wissenschaften zu Leipzig, and InfAI as the source of corpus data used in building these word lists.</p>
+      <p>No corpus text is included in the app — only frequency-ranked headwords and our own editorial enrichment.</p>
     </section>
 
     <section aria-labelledby="privacy">
-      <h2 id="privacy" tabindex="-1"><span class="num" aria-hidden="true">01</span> Privacy Policy</h2>
-      <p class="muted mono">Last updated: September 27, 2026</p>
+      <h2 id="privacy" tabindex="-1"><span class="num" aria-hidden="true">07</span> Privacy Policy</h2>
+      <p class="updated">Last updated: November 5, 2026</p>
 
-      <p>This privacy policy applies to the Wayword app for iPhone, published by
-      Wandering Jetstream LLC ("we," "us"), which is the data controller for the purposes
-      of the UK and EU General Data Protection Regulation. You can reach us about anything
-      in this policy at
+      <p>This privacy policy applies to the Wayword app for iPhone and to these Wayword
+      pages. Both are published by Wandering Jetstream LLC, a District of Columbia limited
+      liability company ("we," "us"), which is the controller for the purposes of the UK
+      and EU General Data Protection Regulation. You can reach us about anything in this
+      policy at
       <a href="mailto:support@wanderingjetstream.com">support@wanderingjetstream.com</a>.</p>
 
-      <p>Wayword is a spaced-repetition flashcard app for learning vocabulary. It is not a
-      game, and it has no accounts, no sign-in, and no social features.</p>
+      <h3>The short version</h3>
+      <p>No ads and no data collection. Wayword makes no network requests of its own, has
+      no accounts, and keeps everything you do in it on your device.</p>
 
       <h3>What Wayword collects: nothing</h3>
-      <p>Wayword itself makes no network requests of any kind. It has no server, no
-      account system, and no analytics. We do not collect your name, your email address,
-      or any other personal information, and we could not do so if we wanted to.</p>
-      <p>Your learning data stays on your device. Wayword has no account system and does
-      not transmit your vocabulary, your progress, or your review history — these are
-      stored locally, and deleting the app removes them.</p>
-      <p>The data Wayword stores on your device, and only on your device, is:</p>
+      <p>Wayword has no server, no account system, no analytics, and no crash reporting of
+      its own. It does not send your vocabulary, your progress, your courses, or anything
+      else to us or to anyone else. We do not collect your name, your email address, or
+      any other personal information through the app.</p>
+      <p>Separately from Wayword, iOS lets you choose whether to share crash and usage
+      information with app developers. If you have turned that on, Apple may give us
+      crash reports that do not identify you. You control this in iOS Settings, under
+      Privacy &amp; Security → Analytics &amp; Improvements.</p>
+
+      <h3>What stays on your device</h3>
+      <p>Wayword stores the following on your iPhone, and only there:</p>
       <ul class="policy-list">
-        <li>your decks and the cards in them, including any vocabulary you import yourself;</li>
-        <li>your review history and spaced-repetition schedule for each card;</li>
-        <li>your progress counts and streaks;</li>
-        <li>your settings, including the language you are studying, appearance and audio
-        preferences, and which sections of the About screen you have expanded;</li>
+        <li>your decks and the cards in them, including vocabulary you import and any
+        pictures or recordings you add;</li>
+        <li>the courses you build or open, and your progress through them;</li>
+        <li>your review history and spaced-repetition schedule;</li>
+        <li>your progress counts, streaks and statistics;</li>
+        <li>your settings, such as the language you are studying and your appearance and
+        audio preferences;</li>
         <li>your Wayword Pro purchase status.</li>
       </ul>
       <p>None of this is backed up to us, shared with us, or visible to us. It is included
-      in your own iPhone or iCloud device backup only if you have that turned on in iOS,
-      which is a setting between you and Apple.</p>
+      in your own iPhone or iCloud backup only if you have turned that on in iOS, which is
+      a matter between you and Apple. Deleting the app deletes it.</p>
 
-      <h3>The only third party: Google AdMob</h3>
-      <p>The single third-party data flow in Wayword is Google's Mobile Ads SDK and
-      Google's User Messaging Platform SDK, which serve and manage advertising in the free
-      version. There are no other SDKs, trackers, analytics services, or network calls in
-      the app.</p>
-      <p>The free version shows ads through Google AdMob. Wayword is configured for
-      non-personalized ads only: ads are not targeted using a cross-app advertising
-      identifier, and the app does not ask to track you. To serve and measure these ads,
-      Google may process limited technical data, such as a coarse (non-precise) location
-      derived from your IP address and general device information. Purchasing Wayword Pro
-      removes ads entirely. See Google's Privacy Policy for details on its ad services.</p>
-      <p>Specifically, when an ad is requested, Google receives and processes:</p>
-      <ul class="policy-list">
-        <li>your IP address, and the coarse (non-precise) location Google infers from it —
-        Google does not receive precise or GPS location from Wayword;</li>
-        <li>device and app information, such as device model, operating system version,
-        and app version;</li>
-        <li>a device identifier used for frequency capping, fraud prevention, and
-        aggregate measurement. Wayword never asks for tracking permission, so the Apple
-        Advertising Identifier (IDFA) is unavailable to the app and to Google; it reads as
-        all zeros.</li>
-        <li>ad interaction data, such as which ads were shown, whether an ad was viewed,
-        and whether it was tapped;</li>
-        <li>crash, performance, and other diagnostic data from the ad SDK itself, such as SDK
-        errors, latency, and ad-load failures.</li>
-      </ul>
-      <p>Google acts as an independent controller for this processing. You can read more
-      in <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>,
-      <a href="https://policies.google.com/technologies/partner-sites">How Google uses
-      information from sites or apps that use its services</a>, and
-      <a href="https://support.google.com/admob/answer/9012903">Google's disclosure of the
-      data AdMob collects</a>.</p>
+      <h3>Sharing courses and Snapshots</h3>
+      <p>Wayword only shares something when you do. When you share a course (a
+      <code>.wayword</code> file) or a Snapshot (a progress card from Stats), you choose
+      where it goes with the iOS share sheet: AirDrop, Messages, Mail, the Files app, or
+      another app. It travels through that service, under that service's terms, to the
+      people or places you pick. It never passes through us, and we cannot see it.</p>
+      <p>A shared course contains only what its author put in it, and a Snapshot shows only
+      what is on the card.</p>
 
-      <h3>Tracking: none, and no ATT prompt</h3>
-      <p>Those ads are non-personalized. Wayword does not use the Advertising Identifier
-      and does not track you across other apps or websites.</p>
-      <p>Because Wayword does not track you in the sense Apple defines, it never presents
-      Apple's App Tracking Transparency prompt. Wayword never asks for tracking permission,
-      so the Apple Advertising Identifier (IDFA) is unavailable to the app and to Google; it
-      reads as all zeros. Ad personalization is disabled at the SDK level, and there is no
-      account or user ID for any data to be linked to; no tracking occurs.</p>
-      <p>If you are in the EEA, the UK, or Switzerland, Wayword shows Google's consent
-      message before any ad-related processing begins. Your choice is stored on your
-      device, and you can change or withdraw it at any time: open
-      <strong>Settings → Privacy Settings</strong> inside Wayword to reopen the consent
-      form. That option appears only where consent is legally required.</p>
+      <h3>No ads, no tracking</h3>
+      <p>Wayword shows no ads. It does not use the Advertising Identifier, never asks for
+      tracking permission, and does not track you across other companies' apps or
+      websites.</p>
+      <p>The app includes Google's Mobile Ads SDK, with its companion User Messaging
+      Platform SDK, as an unused third-party component: Wayword never initialises it, so
+      it sends nothing.</p>
+
+      <h3>Wayword Pro and purchases</h3>
+      <p>Wayword Pro is a one-time in-app purchase; there are no subscriptions. Apple
+      processes the purchase. Wayword checks it on your device, and we receive no payment
+      details or purchase history about you. Apple's handling of your information is
+      governed by <a href="https://www.apple.com/legal/privacy/">Apple's Privacy
+      Policy</a>.</p>
+
+      <h3>Email you send us</h3>
+      <p>If you email us — for support, or to ask for educator codes — we receive your
+      email address and whatever you choose to include, such as a school address or a link
+      to a tutoring profile. We use it only to answer you and, for educators, to check that
+      you teach and send the codes. We do not add you to a mailing list or share your
+      message with anyone. We keep these emails only as long as needed to answer you or,
+      for educators, to verify you and send codes, and delete them within 12 months of our
+      last exchange or sooner on request. Email to our support address is routed by
+      Cloudflare Email Routing.</p>
 
       <h3>Do not sell or share</h3>
       <p>We do not sell your personal information, and we do not share it for
       cross-context behavioral advertising, as those terms are defined by the California
-      Consumer Privacy Act as amended by the CPRA. We have never done so. Because Wayword
-      serves non-personalized ads only and does not use the Advertising Identifier, there
-      is no cross-context behavioral advertising to opt out of, and no "Do Not Sell or
-      Share My Personal Information" mechanism is required. Buying Wayword Pro removes ad
-      serving from the app altogether.</p>
-
-      <h3>Wayword Pro and in-app purchases</h3>
-      <p>Wayword is free to use, with the full core word list in every language. The free version is supported by non-personalized ads.</p>
-      <p>Wayword Pro is a one-time purchase that removes ads, unlocks multiple custom decks, and lets you import your own vocabulary — no subscription, no expiry.</p>
-      <p>Wayword Pro removes all ads: the ad SDK is never started and no ad requests are
-      made.</p>
-      <p>Purchases are handled by Apple through the App Store. We never receive or store
-      your payment details, your Apple Account email, or your name. Apple processes the
-      purchase. Wayword checks it on your device, and we receive no payment details or
-      purchase history about you. Apple's handling of your
-      information is governed by
-      <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.</p>
+      Consumer Privacy Act as amended by the CPRA. We have never done so. Wayword shows no
+      ads, so there is nothing to opt out of, and no "Do Not Sell or Share My Personal
+      Information" mechanism is required.</p>
 
       <h3>Children</h3>
       <p>Wayword is not directed to children under 13, and we do not knowingly collect
-      personal information from children under 13. If you believe a child has provided us
-      with personal information, email
+      personal information from children under 13. If you believe a child has sent us
+      personal information, email
       <a href="mailto:support@wanderingjetstream.com">support@wanderingjetstream.com</a>
       and we will delete it.</p>
 
       <h3>Your rights</h3>
       <p>If you are in the EEA, the UK, or Switzerland, you have the right to access,
       correct, delete, restrict, or object to the processing of your personal data, the
-      right to data portability, the right to withdraw consent at any time, and the right
-      to lodge a complaint with your local supervisory authority. California residents
-      have equivalent rights to know, delete, correct, and to opt out of sale or sharing
-      under the CCPA as amended, and we will not discriminate against you for exercising
-      them.</p>
-      <p>Because Wayword holds no personal data about you on any system we control, the
-      fastest way to exercise deletion is to delete the app, which removes all of your
-      learning data from your device. For anything that concerns Google's ad processing,
-      you can withdraw consent in <strong>Settings → Privacy Settings</strong>, or contact
-      Google directly using the links above.</p>
+      right to data portability, and the right to lodge a complaint with your local
+      supervisory authority. California residents have equivalent rights to know, delete,
+      and correct, and to opt out of sale or sharing under the CCPA as amended, and we will
+      not discriminate against you for exercising them.</p>
+      <p>Wayword holds no personal data about you on any system we control, so the
+      quickest way to delete your Wayword data is to delete the app, which removes all of
+      it from your device. If you have emailed us, we can delete that correspondence.</p>
       <p>To make a request of us, email
       <a href="mailto:support@wanderingjetstream.com">support@wanderingjetstream.com</a>.
       We will respond within 30 days.</p>
@@ -198,16 +280,7 @@
       use this for advertising, and we do not have access to raw server logs. See
       <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's
       Privacy Statement</a> and
-      <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare's Privacy Policy</a>.
-      Email to our support address is routed by Cloudflare Email Routing.</p>
-
-      <h3>Where the word lists come from</h3>
-      <p>The core word lists are built from real language. Source texts are drawn from
-      Project Gutenberg (via the Gutendex API) and the Leipzig Corpora Collection — both
-      open, well-documented, and licensed for redistribution including commercial use.</p>
-      <p>Leipzig Corpora Collection data is used under the Creative Commons Attribution licence (CC BY). We gratefully acknowledge Universität Leipzig, the Sächsische Akademie der Wissenschaften zu Leipzig, and InfAI as the source of corpus data used in building these word lists.</p>
-      <p>No corpus text is included in the app — only frequency-ranked headwords and our
-      own editorial enrichment.</p>
+      <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare's Privacy Policy</a>.</p>
 
       <h3>Changes to this policy</h3>
       <p>If this policy changes, we will update this page and revise the "last updated"
@@ -216,10 +289,9 @@
 
       <h3>Governing law</h3>
       <p>This policy and any dispute arising from it are governed by the laws of the
-      District of Columbia, United States, without regard to its
-      conflict-of-laws rules. Nothing in this section removes any right you have under the
-      mandatory consumer-protection or data-protection law of your own country of
-      residence.</p>
+      District of Columbia, United States, without regard to its conflict-of-laws rules.
+      Nothing in this section removes any right you have under the mandatory
+      consumer-protection or data-protection law of your own country of residence.</p>
 
       <h3>Contact</h3>
       <p>Questions about privacy? Email us at
@@ -227,84 +299,21 @@
     </section>
 
     <section aria-labelledby="terms">
-      <h2 id="terms" tabindex="-1"><span class="num" aria-hidden="true">02</span> Terms of Use</h2>
-      <p class="muted mono">Last updated: September 17, 2026</p>
-
-      <p>These terms apply to the Wayword app for iPhone, published by Wandering Jetstream
-      LLC. By downloading or using Wayword you agree to them. They sit alongside Apple's
-      standard End User License Agreement for licensed applications, which also applies.</p>
-
-      <h3>Licence</h3>
-      <p>We grant you a personal, non-exclusive, non-transferable, revocable licence to
-      use Wayword on Apple devices you own or control, for your own learning. You may not
-      copy, redistribute, sell, rent, sublicense, reverse-engineer, or extract the app's
-      word lists, audio, or other content for use outside the app, except where that
-      restriction is prohibited by law.</p>
-
-      <h3>Acceptable use</h3>
-      <p>Do not use Wayword unlawfully, and do not attempt to interfere with, disrupt, or
-      circumvent any part of the app, including its purchase and ad-consent mechanisms.</p>
-
-      <h3>Content you import</h3>
-      <p>Wayword Pro lets you import your own vocabulary. You are responsible for what you
-      import: you must have the right to use it, and it must not infringe anyone else's
-      rights or break any law. Imported content stays on your device — we never receive
-      it, never review it, and cannot recover it for you if it is lost or if you delete
-      the app.</p>
-
-      <h3>No warranty on educational content</h3>
-      <p>Wayword's translations, phonetic transcriptions, part-of-speech and gender
-      labels, CEFR levels, and audio are provided for language-learning purposes and are
-      offered "as is." Language is ambiguous and regionally variable, and we make no
-      warranty that any entry is accurate, complete, or suitable for professional,
-      academic, legal, medical, or safety-critical use. Do not rely on Wayword for
-      translation where accuracy matters. If you find an error, please tell us — see
-      Support below.</p>
-
-      <h3>Limitation of liability</h3>
-      <p>To the fullest extent permitted by law, Wandering Jetstream LLC is not liable for
-      indirect, incidental, special, consequential, or punitive damages, or for lost data,
-      lost profits, or loss of goodwill, arising out of your use of Wayword. Our total
-      liability for any claim relating to Wayword is limited to the amount you paid us for
-      it, which for the free version is zero. Some jurisdictions do not allow these
-      limitations, in which case they apply only to the extent permitted, and nothing here
-      limits liability for death, personal injury, or fraud.</p>
-
-      <h3>Intellectual property</h3>
-      <p>Wayword, its design, its code, its audio, and its curated word lists are owned by
-      Wandering Jetstream LLC, except for third-party material used under licence: corpus
-      data from the Leipzig Corpora Collection under CC BY, public-domain source texts
-      from Project Gutenberg, and Google's Mobile Ads and User Messaging Platform SDKs
-      under Google's terms. "Wayword" and "Wandering Jetstream" are our marks. All rights
-      not expressly granted are reserved.</p>
-
-      <h3>Changes and termination</h3>
-      <p>We may update these terms; the "last updated" date above will change, and
-      continued use after that constitutes acceptance. This licence ends automatically if
-      you breach these terms or delete the app.</p>
-
-      <h3>Governing law</h3>
-      <p>These terms are governed by the laws of the
-      District of Columbia, United States, without regard to its
-      conflict-of-laws rules, and nothing here removes any mandatory right you have under
-      the consumer-protection law of your own country of residence.</p>
-
-      <h3>Apple</h3>
-      <p>Apple is not a party to these terms and has no obligation to provide support for
-      Wayword. Apple and its subsidiaries are third-party beneficiaries of these terms and
-      may enforce them against you.</p>
+      <h2 id="terms" tabindex="-1"><span class="num" aria-hidden="true">08</span> Terms of Use</h2>
+      <p>Wayword's terms — the licence, acceptable use, your content and shared courses,
+      and the limits of our liability — are on their own page:
+      <a href="/wayword/terms/">Terms of Use</a>.</p>
     </section>
 
     <section aria-labelledby="support">
-      <h2 id="support" tabindex="-1"><span class="num" aria-hidden="true">03</span> Support</h2>
-      <p>Found a bug, have a question, spotted a wrong translation, or want to share an
-      idea for Wayword? We'd genuinely like to hear it. Email
-      <a href="mailto:support@wanderingjetstream.com">support@wanderingjetstream.com</a>
-      and we'll get back to you. We aim to reply within a few days, and always within 30
-      days for privacy requests.</p>
-      <p class="muted">When reporting a bug, it helps to include your iPhone model, your
-      iOS version, the Wayword version shown at the bottom of Settings, and the language
-      you were studying.</p>
+      <h2 id="support" tabindex="-1"><span class="num" aria-hidden="true">09</span> Support</h2>
+      <p>Found a bug, spotted a wrong translation, or have a question? Email
+      <a href="mailto:support@wanderingjetstream.com">support@wanderingjetstream.com</a>.
+      We aim to reply within a few days, and always within 30 days for privacy
+      requests.</p>
+      <p>Answers to common questions — restoring a purchase, moving to a new phone, sharing
+      a course, deleting your data — are on the <a href="/wayword/support/">support
+      page</a>.</p>
     </section>
   </div>
 </main>
@@ -314,10 +323,12 @@
     <span class="mono">© 2026 Wandering Jetstream LLC</span>
     <span>
       <a href="/">Studio</a> ·
-      <a href="/pegwise/">Pegwise</a> ·
+      <a href="/wayword/">Wayword</a> ·
+      <a href="/wayword/educators/">Educators</a> ·
+      <a href="/wayword/courses/">Courses</a> ·
+      <a href="/wayword/support/">Support</a> ·
       <a href="/wayword/#privacy">Privacy</a> ·
-      <a href="/wayword/#terms">Terms</a> ·
-      <a href="/wayword/#support">Support</a>
+      <a href="/wayword/terms/">Terms</a>
     </span>
   </div>
 </footer>
